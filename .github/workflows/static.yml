@@ -32,8 +32,10 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Build Production Files
-        run: npm run build
+      -- name: Build Production Files
+        run: |
+          chmod -R +x node_modules/.bin/
+          npm run build
 
       - name: Setup Pages Engine
         uses: actions/configure-pages@v4
