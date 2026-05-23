@@ -5,7 +5,9 @@ import path from "path";
 
 const rawPort = process.env.PORT ?? "3000";
 const port = Number(rawPort);
-const basePath = process.env.BASE_PATH ?? "/";
+
+// FIX: Changed fallback from "/" to "/DUALRIFT/" so GitHub Pages can locate assets in your subfolder
+const basePath = process.env.BASE_PATH ?? "/DUALRIFT/";
 
 export default defineConfig({
   base: basePath,
