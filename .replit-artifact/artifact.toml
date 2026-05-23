@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "DualRift — Built Different"
+version = "1.0.0"
+id = "artifacts/dualrift"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24022
+
+[services.development]
+run = "pnpm --filter @workspace/dualrift run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/dualrift", "run", "build" ]
+publicDir = "artifacts/dualrift/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24022"
+BASE_PATH = "/"
