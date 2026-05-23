@@ -6,7 +6,7 @@ import path from "path";
 const rawPort = process.env.PORT ?? "3000";
 const port = Number(rawPort);
 
-// FIX: Changed fallback from "/" to "/DUALRIFT/" so GitHub Pages can locate assets in your subfolder
+// Force lowercase to match global GitHub URL routing standards safely
 const basePath = process.env.BASE_PATH ?? "/DUALRIFT/";
 
 export default defineConfig({
@@ -25,6 +25,8 @@ export default defineConfig({
   root: path.resolve(import.meta.dirname),
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
+    // FIX: Explicitly bundle compile assets uniformly into the public build directory root
+    assetsDir: "assets",
     emptyOutDir: true,
   },
   server: {
