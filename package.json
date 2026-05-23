@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "npx vite --config vite.config.ts --host 0.0.0.0",
     "build": "npx vite build --config vite.config.ts",
-"serve": "npx vite preview --config vite.config.ts --host 0.0.0.0"
+"serve": "npx vite preview --config vite.config.ts --host 0.0.0.0",
        
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
